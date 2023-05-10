@@ -5,4 +5,3 @@ for char in range(97, 123):
         continue
     print("{}".format(chr(char)), end='')
     char += 1
-    

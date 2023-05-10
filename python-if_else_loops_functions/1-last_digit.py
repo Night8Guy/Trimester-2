@@ -12,4 +12,3 @@ elif number2 > 5:
           .format(number, number2))
 else:
     print("Last digit of {} is {} and is 0".format(number, number2))
-    

@@ -19,19 +19,20 @@ class Square(object):
         if type(value) != int:
             raise TypeError("size must be an integer")
         elif value < 0:
-            raise ValueError("size must be >= 0")
-        self.__size = value
+            raise ValueError("size must be > 0")
+        else:
+            self.__size = value
 
     def area(self):
         """Define area"""
-        return self.__size * self.__size
+        area = self.__size * self.__size ** 2
+        return area
 
     def my_print(self):
         """Print #"""
-        if self.__size > 0:
-            for i in range(self.__size):
-                for j in range(self.__size):
-                    print("#", end="")
-                print("")
-            else:
-                print("")
+        if self.__size is 0:
+            print()
+        for x in range(self.__size):
+            for y in range(self.__size):
+                print("#", end="")
+            print()

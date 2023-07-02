@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "../.."
+		},
+		{
+			"name": "SSH FS - holberton",
+			"uri": "ssh://holberton/holberton/tmp"
+		}
+	],
+	"settings": {}
+}

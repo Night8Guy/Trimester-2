@@ -1,0 +1,1 @@
+We will continue to work with SQL, this time with more advanced queries.

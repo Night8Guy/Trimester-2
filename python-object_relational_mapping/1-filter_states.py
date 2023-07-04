@@ -1,21 +1,22 @@
 #!/usr/bin/python3
 """
-Write a script that lists all states with a name
-starting with N (upper N) from the database hbtn_0e_0_usa
+list all states with a name starting with N
+from database hbtn_0e_0_USA
 """
 import MySQLdb
 import sys
 
 
-def list_N_states():
-    """List the states that start with 'N'"""
+def N_states():
     db = MySQLdb.connect(host="localhost", port=3306, user=sys.argv[1],
                          passwd=sys.argv[2], db=sys.argv[3])
 
     cur = db.cursor()
 
-    cur.execute("SELECT * FROM states WHERE BINARY name LIKE 'N%' ORDER BY id")
+    cur.execute("SELECT * FROM states WHERE BINARY NAME LIKE 'N%' ORDER BY id")
+
     rows = cur.fetchall()
+
     for row in rows:
         print(row)
 
@@ -24,4 +25,4 @@ def list_N_states():
 
 
 if __name__ == "__main__":
-    list_N_states()
+    N_states()

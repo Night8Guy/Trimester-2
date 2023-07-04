@@ -1,27 +1,30 @@
 #!/usr/bin/python3
 """
-Write a script that takes in the name of a state
-    as an argument and lists all cities of that
-    state, using the database hbtn_0e_4_usa
+script that takes name of a state
+as argument and lists all cities in that state
+using the database hbtn_0e_4_usa
 """
 import MySQLdb
 import sys
 
 
 def list_cities_by_state():
-    """List the cities of a state"""
     db = MySQLdb.connect(host="localhost", port=3306, user=sys.argv[1],
                          passwd=sys.argv[2], db=sys.argv[3])
 
-    cur = db.cursor()
+    cursor = db.cursor()
 
-    sql_com = "SELECT cities.name FROM cities JOIN states\
-                ON states.id = cities.state_id WHERE states.name\
-                = %s ORDER BY cities.id"
-    cur.execute(sql_com, (sys.argv[4],))
+    buffer_string = "SELECT cities.name FROM cities\
+                JOIN states ON states.id = cities.state_id\
+                WHERE states.name = %s ORDER BY cities.id ASC"
 
-    rows = cur.fetchall()
+    cursor.execute(buffer_string, (sys.argv[4],))
 
+    rows = cursor.fetchall()
+
+    """
+    Must Print Again
+    """
     if len(rows) == 0:
         print()
         return
@@ -30,7 +33,7 @@ def list_cities_by_state():
         print(rows[i][0], end=', ')
     print(rows[len(rows) - 1][0])
 
-    cur.close()
+    cursor.close()
     db.close()
 
 

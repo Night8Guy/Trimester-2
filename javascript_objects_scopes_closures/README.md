@@ -1,0 +1,1 @@
+This README will focus on  javascript objects, scopes and closures.
